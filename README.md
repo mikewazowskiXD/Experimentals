@@ -1,2 +1,4 @@
 # Experimentals 
-PHP discord login verification, redirects to dashboard.
+Discord login verification using PHP, redirects to dashboard.
+
+Session provider in database in-works.
