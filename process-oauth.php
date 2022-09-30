@@ -13,8 +13,8 @@ $discord_code = $_GET['code'];
 
 $payload = [
     'code'=>$discord_code,
-    'client_id'=>'YOUR_CLIENT_ID_GOES_HERE',
-    'client_secret'=>'YOUR_CLIENT_SECRET_GOES_HERE',
+    'client_id'=>'1021974576349065346',
+    'client_secret'=>'55c77523d6d66a237de2ee56ac1f621997f4d80faff2ffee76ba2fa47e9bc87f',
     'grant_type'=>'authorization_code',
     'redirect_uri'=>'http://localhost/PROJECT_DIRECTORY/src/process-oauth.php',
     'scope'=>'identify%20guids',
