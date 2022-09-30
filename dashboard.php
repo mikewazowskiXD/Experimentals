@@ -1,62 +1,32 @@
+<?php
+session_start();
 
-<!DOCTYPE html>
-<html lang="en">
+if(!$_SESSION['logged_in']){
+  header('Location: error.php');
+  exit();
+}
+extract($_SESSION['userData']);
+
+$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+
+
+?>
+<!doctype html>
+<html>
 <head>
-    <link rel="stylesheet" href="assets/styles/style.css" type="text/css">
-    <title>Experimentals</title>
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 <body>
-    <button class="" onclick=""><a href="init-oauth.php"><img height="30" src="assets/images/dlogo.png"><span>Login with Discord</span></a></button>
-    <div class="homepage">
-        <h1>Experimentals</h1>
-        <p>You need to Login with Discord to continue</p>
-
-			<!-- <div class="form-popup" id="myForm1">
-			  <form action="index.php" method="POST" class="form-container">
-			    <h2>Login/Register</h2>
-			    <div class="javaerror"></div>
-			    <label for="email"><b>Discord ID</b></label>
-			    <input type="text" placeholder="Enter ID" name="discordid" class="discordid" required>
-
-			    <label for="psw"><b>Password</b></label>
-			    <input type="password" placeholder="Enter Password" name="password" class="password" required>
-
-			    <button type="submit" class="btn btnjava">Login</button>
-			    <a href="init-oauth.php">Login with Discord</a>
-			    <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
-			  </form>
-			</div>
-			<script>
-			function openForm1() {
-			  document.getElementById("myForm1").style.display = "block";
-			}
-
-			function closeForm1() {
-			  document.getElementById("myForm1").style.display = "none";
-			}
-
-			$('.btnjava').on('click', function(){
-				var discordid = $('.discordid').val();
-				var password = $('.password').val();
-
-				if ( discordid==''|| password=='') {
-					$('.javaerror').html("Plese enter ID and Password");
-				}
-
-			});
-
-			$('.btnjava2').on('click', function(){
-				var discordid = $('.discordid').val();
-				var password = $('.password').val();
-
-				if ( discordid==''|| password=='') {
-					$('.javaerror').html("Plese enter ID and Password");
-				}
-
-			});
-			</script> -->
+    <div class="flex items-center justify-center h-screen bg-discord-gray flex-col">
+      <div class="text-white text-3xl">Welcome to the dashboard, </div>
+      <div class="flex items-center mt-4">
+        <img class="rounded-full w-12 h-12 mr-3" src="<?php echo $avatar_url?>" />
+        <span class="text-3xl text-white font-semibold"><?php echo $name;?></span>
+      </div>
+      <a href="logout.php" class="mt-5 text-gray-300">Logout</a>
     </div>
+
 </body>
 </html>
